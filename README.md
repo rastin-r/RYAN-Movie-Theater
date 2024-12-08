@@ -36,7 +36,7 @@ RYAN-Movie-Theater is a console-based movie theater management system built in J
     - Users can view their existing reservations with details like movie name, showtime, discount type, and reservation number.
 
 
-![Activity diagram](https://github.com/user-attachments/assets/2d8bdc2f-434d-4da8-99b2-719e44071bed)
+![Use case diagram example-2](https://github.com/user-attachments/assets/fe5c87d6-fd40-424e-b1fd-27c574d81680)
 
 
 ---
@@ -119,6 +119,8 @@ Ensure you have the following installed:
     - Book tickets by selecting date, showtime, and seat.
     - Apply discounts with valid IDs.
     - View existing reservations.
+      
+![Activity diagram](https://github.com/user-attachments/assets/f84d24ed-8f38-45dc-a07a-5860b9f43acc)
 
 ---
 
