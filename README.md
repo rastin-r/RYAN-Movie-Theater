@@ -161,9 +161,6 @@ This project is licensed under the MIT License. See the LICENSE file for details
 ## **Contact**
 For any questions or support:
 - **Name**: RYAN-Movies Support Team
-- **Email**: support@ryan-movies.com
-- **GitHub**: [github.com/your-repo](https://github.com/your-repo)
-
---- 
+- **GitHub**: [github.com/your-repo](https://github.com/RYAN-Movie-Theater)
 
 By following this guide, you will have the RYAN-Movie-Theater project up and running efficiently! 🎬
