@@ -124,6 +124,13 @@ Ensure you have the following installed:
 
 ---
 
+## **Database Tables**
+
+![ERD (crow's foot)-2](https://github.com/user-attachments/assets/440dfada-e9dd-465e-96a2-e56cde60081f)
+
+
+---
+
 ## **Testing**
 To run unit tests:
 ```bash
