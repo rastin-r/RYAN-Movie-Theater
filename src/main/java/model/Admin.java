@@ -1,29 +1,16 @@
 package model;
 
 public class Admin {
+    public static void main(String[] args) {
+        // Example admin user creation
+        int userId = 1;
+        String name = "RYAN-admin";
+        String email = "RYAN-admin";
+        String password = "RYAN-sdm24!";
 
-    private String username;
-    private String password;
+        // Pass 'true' for isAdmin since this is an admin user
+        User adminUser = new User(userId, name, email, password, true);
 
-
-    public Admin(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        System.out.println("Admin User Created: " + adminUser.getName());
     }
 }
