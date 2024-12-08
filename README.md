@@ -2,6 +2,8 @@
 
 RYAN-Movie-Theater is a console-based movie theater management system built in Java. It allows **Admins** to manage movies and bookings, while **Users** can view movies, book tickets with discounts, and view their reservations.
 
+![Flowchart](https://github.com/user-attachments/assets/1288b896-dfa0-4d06-9367-d0462d35fb21)
+
 ---
 
 ## **Features**
@@ -32,6 +34,7 @@ RYAN-Movie-Theater is a console-based movie theater management system built in J
         - Generate a unique **Reservation Number** upon successful booking.
 4. **View Reservations**:
     - Users can view their existing reservations with details like movie name, showtime, discount type, and reservation number.
+
 
 ---
 
