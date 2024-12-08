@@ -9,8 +9,8 @@ import java.sql.SQLException;
  */
 public class DatabaseConnection {
     private static final String DB_URL = "jdbc:mysql://sdm24-db.cryoawqmgfhw.eu-north-1.rds.amazonaws.com:3306/sdm_db?user=admin";
-    private static final String DB_USER = "admin";
-    private static final String DB_PASSWORD = "RYAN-sdm24!";
+    private static final String DB_USER = "your-username";
+    private static final String DB_PASSWORD = "your-password";
 
     /**
      * Creates and returns a connection to the database.
