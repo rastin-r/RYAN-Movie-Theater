@@ -1,0 +1,150 @@
+Use sdm_db;
+-- Drop existing tables (if any)
+DROP TABLE IF EXISTS reservations;
+DROP TABLE IF EXISTS showtimes;
+DROP TABLE IF EXISTS movies;
+DROP TABLE IF EXISTS users;
+
+-- Create Users Table
+CREATE TABLE users (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN DEFAULT FALSE
+);
+
+-- Create Movies Table
+CREATE TABLE movies (
+    movie_id INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(100) NOT NULL,
+    description TEXT,
+    genre VARCHAR(255), -- Increased to 255 characters to accommodate longer input
+    cast TEXT,
+    music VARCHAR(100),
+    screenplay VARCHAR(100),
+    duration INT NOT NULL -- Duration in minutes
+);
+
+-- Create Showtimes Table
+CREATE TABLE showtimes (
+    showtime_id INT AUTO_INCREMENT PRIMARY KEY,
+    movie_id INT NOT NULL,
+    showtime TIMESTAMP NOT NULL,
+    FOREIGN KEY (movie_id) REFERENCES movies(movie_id)
+);
+
+-- Create Reservations Table
+CREATE TABLE reservations (
+    reservation_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    movie_id INT NOT NULL,
+    showtime_id INT NOT NULL,
+    reservation_date DATE NOT NULL,
+    seat_numbers VARCHAR(10) NOT NULL,
+    discount_type VARCHAR(20),
+    discount_id VARCHAR(12),
+    FOREIGN KEY (user_id) REFERENCES users(user_id),
+    FOREIGN KEY (movie_id) REFERENCES movies(movie_id),
+    FOREIGN KEY (showtime_id) REFERENCES showtimes(showtime_id)
+);
+
+-- Insert Admin User
+INSERT INTO users (name, email, password, is_admin)
+VALUES ('RYAN-admin', 'RYAN-admin', 'RYAN-sdm24!', TRUE);
+
+-- Insert Sample Movies
+INSERT INTO movies (title, description, genre, cast, music, screenplay, duration) VALUES
+('Wicked',
+ 'Set in the Land of Oz, focusing on Elphaba''s journey to becoming the Wicked Witch.',
+ 'Family, Musical',
+ 'Cynthia Erivo, Ariana Grande, Michelle Yeoh, Jeff Goldblum',
+ 'John Powell',
+ 'Winnie Holzman, Stephen Schwartz',
+ 160),
+
+('Moana 2',
+ 'Moana must journey to reconnect her people by facing new challenges in the far seas of Oceania.',
+ 'Adventure, Musical',
+ 'Auliʻi Cravalho, Dwayne Johnson, Temuera Morrison, Nicole Scherzinger',
+ 'Mark Mancina, Opetaia Foaʻi',
+ 'David Derrick Jr., Jared Bush',
+ 100),
+
+('Venom: The Last Dance',
+ 'Eddie and Venom are forced into a decision as they are hunted by both their worlds.',
+ 'Superhero, Action, Sci-fi',
+ 'Tom Hardy, Chiwetel Ejiofor, Juno Temple, Rhys Ifans',
+ '',
+ 'Kelly Marcel',
+ 110),
+
+('Mufasa: The Lion King',
+ 'The story of one of the greatest kings of the Pride Lands and his rise to greatness.',
+ 'Adventure, Musical',
+ 'Aaron Pierre, Kelvin Harrison Jr., Seth Rogen, Billy Eichner',
+ 'Hans Zimmer',
+ 'Jeff Nathanson',
+ 120),
+
+('Red One',
+ 'An operative teams up with a tracker to save Christmas after Santa is kidnapped.',
+ 'Adventure, Comedy, Action',
+ 'Dwayne Johnson, Chris Evans, Kiernan Shipka, Lucy Liu',
+ 'Henry Jackman',
+ 'Chris Morgan',
+ 123);
+
+-- Insert Sample Showtimes for Each Movie (Full Dates, Adhering to Duration Constraints)
+
+-- Wicked: Duration 160 minutes (2 hours 40 minutes)
+INSERT INTO showtimes (movie_id, showtime) VALUES
+(1, '2024-12-10 08:00:00'),
+(1, '2024-12-10 11:00:00'),
+(1, '2024-12-10 14:00:00'),
+(1, '2024-12-10 17:00:00'),
+(1, '2024-12-10 20:00:00'),
+(1, '2024-12-11 08:00:00'),
+(1, '2024-12-11 11:00:00');
+
+-- Moana 2: Duration 100 minutes (1 hour 40 minutes)
+INSERT INTO showtimes (movie_id, showtime) VALUES
+(2, '2024-12-10 08:00:00'),
+(2, '2024-12-10 09:50:00'),
+(2, '2024-12-10 11:40:00'),
+(2, '2024-12-10 13:30:00'),
+(2, '2024-12-10 15:20:00'),
+(2, '2024-12-10 17:10:00'),
+(2, '2024-12-10 19:00:00'),
+(2, '2024-12-10 20:50:00');
+
+-- Venom: The Last Dance: Duration 110 minutes (1 hour 50 minutes)
+INSERT INTO showtimes (movie_id, showtime) VALUES
+(3, '2024-12-10 08:00:00'),
+(3, '2024-12-10 09:50:00'),
+(3, '2024-12-10 11:40:00'),
+(3, '2024-12-10 13:30:00'),
+(3, '2024-12-10 15:20:00'),
+(3, '2024-12-10 17:10:00'),
+(3, '2024-12-10 19:00:00'),
+(3, '2024-12-10 20:50:00');
+
+-- Mufasa: The Lion King: Duration 120 minutes (2 hours)
+INSERT INTO showtimes (movie_id, showtime) VALUES
+(4, '2024-12-10 08:00:00'),
+(4, '2024-12-10 10:00:00'),
+(4, '2024-12-10 12:00:00'),
+(4, '2024-12-10 14:00:00'),
+(4, '2024-12-10 16:00:00'),
+(4, '2024-12-10 18:00:00'),
+(4, '2024-12-10 20:00:00');
+
+-- Red One: Duration 123 minutes (~2 hours 3 minutes)
+INSERT INTO showtimes (movie_id, showtime) VALUES
+(5, '2024-12-10 08:00:00'),
+(5, '2024-12-10 10:10:00'),
+(5, '2024-12-10 12:20:00'),
+(5, '2024-12-10 14:30:00'),
+(5, '2024-12-10 16:40:00'),
+(5, '2024-12-10 18:50:00'),
+(5, '2024-12-10 21:00:00');
