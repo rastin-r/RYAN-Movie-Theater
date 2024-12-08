@@ -1,28 +1,40 @@
 package model;
 
 public class User {
-
+    private int userId;
     private String name;
-    private boolean isStudentOrRetiree;
+    private String email;
+    private String password;
+    private boolean isAdmin;
 
-    public User(String name, boolean isStudentOrRetiree) {
+    // Constructor
+    public User(int userId, String name, String email, String password, boolean isAdmin) {
+        this.userId = userId;
         this.name = name;
-        this.isStudentOrRetiree = isStudentOrRetiree;
+        this.email = email;
+        this.password = password;
+        this.isAdmin = isAdmin;
+    }
+
+    // Getters and Setters
+    public int getUserId() {
+        return userId;
     }
 
     public String getName() {
         return name;
     }
 
-    public boolean isStudentOrRetiree() {
-        return isStudentOrRetiree;
+    public String getEmail() {
+        return email;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getPassword() {
+        return password;
     }
 
-    public void setStudentOrRetiree(boolean studentOrRetiree) {
-        isStudentOrRetiree = studentOrRetiree;
+    public boolean isAdmin() {
+        return isAdmin;
     }
 }
+
