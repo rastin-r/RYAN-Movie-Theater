@@ -1,57 +1,39 @@
 package model;
 
+import java.time.LocalDateTime;
+
 public class Movie {
-    private int id;
+    private int movieId;
     private String title;
+    private String description;
     private String genre;
-    private int duration; // in minutes
-    private String rating;
+    private String cast;
+    private String music;
+    private String screenplay;
+    private int duration;
+    private LocalDateTime showTime;
 
-    public Movie(int id, String title, String genre, int duration, String rating) {
-        this.id = id;
+    public Movie(int movieId, String title, String description, String genre, String cast,
+                 String music, String screenplay, int duration, LocalDateTime showTime) {
+        this.movieId = movieId;
         this.title = title;
+        this.description = description;
         this.genre = genre;
+        this.cast = cast;
+        this.music = music;
+        this.screenplay = screenplay;
         this.duration = duration;
-        this.rating = rating;
+        this.showTime = showTime;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getGenre() {
-        return genre;
-    }
-
-    public void setGenre(String genre) {
-        this.genre = genre;
-    }
-
-    public int getDuration() {
-        return duration;
-    }
-
-    public void setDuration(int duration) {
-        this.duration = duration;
-    }
-
-    public String getRating() {
-        return rating;
-    }
-
-    public void setRating(String rating) {
-        this.rating = rating;
-    }
+    // Getters
+    public int getMovieId() { return movieId; }
+    public String getTitle() { return title; }
+    public String getDescription() { return description; }
+    public String getGenre() { return genre; }
+    public String getCast() { return cast; }
+    public String getMusic() { return music; }
+    public String getScreenplay() { return screenplay; }
+    public int getDuration() { return duration; }
+    public LocalDateTime getShowTime() { return showTime; }
 }
