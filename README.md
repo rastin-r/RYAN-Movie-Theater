@@ -139,9 +139,9 @@ mvn test
 
 Test classes include:
 - `AuthControllerTest`
-- `AdminControllerTest`
+- `AdminControllerTest` (needs to be set up)
 - `ReservationControllerTest`
-- `UserControllerTest`
+- `UserControllerTest` (needs to be set up)
 
 ---
 
